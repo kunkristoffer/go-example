@@ -1,0 +1,39 @@
+package pages
+
+import "github.com/kunkristoffer/go-example/model"
+import "time"
+
+templ Index(messages []model.Message) {
+	<!DOCTYPE html>
+	<html lang="en">
+		<head>
+			<meta charset="UTF-8"/>
+			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+			<title>Chat Room</title>
+			<style>
+			body { font-family: sans-serif; max-width: 600px; margin: 2rem auto; }
+			form { margin-bottom: 1rem; }
+			input[type="text"] { width: 80%; padding: 0.5rem; }
+			button { padding: 0.5rem 1rem; }
+			.chat-box { border: 1px solid #ccc; padding: 1rem; height: 300px; overflow-y: auto; background: #f9f9f9; }
+			.message { display:flex; gap: 1rem }
+			p {margin: 0;}
+		</style>
+		</head>
+		<body>
+			<h1>Simple Chat Room</h1>
+			<form method="POST" action="/send">
+				<input type="text" name="message" placeholder="Write a message..." required/>
+				<button type="submit">Send</button>
+			</form>
+			<div class="chat-box">
+				for _, msg := range messages {
+					<span class="message">
+						<p>{ msg.CreatedAt.Format(time.Kitchen) }</p>
+						<p>{ msg.Content }</p>
+					</span>
+				}
+			</div>
+		</body>
+	</html>
+}
