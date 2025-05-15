@@ -1,17 +1,12 @@
-# fly.toml app configuration file generated for go-example-thrumming-night-1571 on 2025-05-14T18:55:15+02:00
+# fly.toml app configuration file generated for go-example-hidden-mountain-4301 on 2025-05-15T15:08:27+02:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'go-example-thrumming-night-1571'
+app = 'go-example-hidden-mountain-4301'
 primary_region = 'arn'
 
 [build]
-  [build.args]
-    GO_VERSION = '1.23.0'
-
-[env]
-  PORT = '8080'
 
 [http_service]
   internal_port = 8080
