@@ -1,7 +1,20 @@
 package pages
 
-import "github.com/kunkristoffer/go-example/model"
-import "time"
+import (
+	"github.com/kunkristoffer/go-example/model"
+	"os"
+	"time"
+)
+
+func getRegion() string {
+	data, ok := os.LookupEnv("FLY_MACHINE_ID")
+
+	if ok {
+		return data
+	}
+	return "NOID"
+
+}
 
 templ Index(messages []model.Message) {
 	<!DOCTYPE html>
@@ -21,7 +34,7 @@ templ Index(messages []model.Message) {
 		</style>
 		</head>
 		<body>
-			<h1>Simple Chat Room</h1>
+			<h1>Chat Room { getRegion() }</h1>
 			<form method="POST" action="/send">
 				<input type="text" name="message" placeholder="Write a message..." required/>
 				<button type="submit">Send</button>
