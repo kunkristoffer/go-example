@@ -3,7 +3,7 @@
 # storage on disk. It intercepts disk writes to determine transaction boundaries
 # so that those transactions can be saved and shipped to replicas.
 fuse:
-  dir: "/litefs"
+  dir: "/database"
 
 # The data section describes settings for the internal LiteFS storage. We'll
 # mount a volume to the data directory so it can be persisted across restarts.
@@ -21,7 +21,7 @@ exit-on-error: false
 # for applications that use a single SQLite database.
 proxy:
   addr: ":8080"
-  target: "localhost:8080"
+  target: "localhost:8081"
   db: "chat.db"
   passthrough:
     - "*.ico"
@@ -32,7 +32,7 @@ proxy:
 # the last command to be long-running (e.g. an application server). When the
 # last command exits, LiteFS is shut down.
 exec:
-  - cmd: "run-app -addr :8081 -dsn /litefs/db"
+  - cmd: "run-app -addr :8081 -dsn /litefs/chat.db"
 
 # The lease section specifies how the cluster will be managed. We're using the
 # "consul" lease type so that our application can dynamically change the primary.
