@@ -1,16 +1,16 @@
-# fly.toml app configuration file generated for go-example-hidden-mountain-4301 on 2025-05-15T15:08:27+02:00
+# fly.toml app configuration file generated for go-example-icy-shape-8609 on 2025-05-22T10:15:44+02:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'go-example-hidden-mountain-4301'
+app = 'go-example-icy-shape-8609'
 primary_region = 'arn'
 
 [build]
 
-[mounts]
-  source = "litefs"
-  destination = "/var/lib/litefs"
+[[mounts]]
+  source = 'litefs'
+  destination = '/var/lib/litefs'
 
 [http_service]
   internal_port = 8080
