@@ -11,7 +11,7 @@ var db *sql.DB
 
 func initDB() {
 	var err error
-	db, err = sql.Open("sqlite", "file:chat.db?_pragma=foreign_keys=on")
+	db, err = sql.Open("sqlite", "database/chat.db")
 	if err != nil {
 		log.Fatal(err)
 	}
