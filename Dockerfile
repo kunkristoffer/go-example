@@ -11,7 +11,7 @@ RUN go build -v -o /run-app .
 FROM debian:bookworm
 
 RUN apt-get update -y && apt-get install -y ca-certificates fuse3 sqlite3
-COPY --from=flyio/litefs:0.5 /usr/local/bin/database /usr/local/bin/litefs
+COPY --from=flyio/litefs:0.5 /usr/local/bin/litefs /usr/local/bin/litefs
 
 COPY --from=builder /run-app /usr/local/bin/
 ENTRYPOINT litefs mount
