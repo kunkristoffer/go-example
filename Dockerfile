@@ -1,4 +1,4 @@
-FROM golang:1.24-bookworm as builder
+FROM golang:1.24-bookworm AS builder
 
 RUN apt-get update -y && apt-get install -y ca-certificates fuse3 sqlite3
 
