@@ -34,4 +34,5 @@ EXPOSE 8080
 COPY etc/litestream.yml /etc/litestream.yml
 COPY scripts/replication.sh /scripts/replication.sh
 
+# CMD [ "tail", "-f", "/dev/null" ]
 CMD [ "/scripts/replication.sh" ]
