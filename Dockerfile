@@ -31,7 +31,7 @@ RUN mkdir -p /database
 EXPOSE 8080
 
 # Copy Litestream configuration file & startup script.
-COPY litestream.yml /etc/litestream.yml
+COPY etc/litestream.yml /etc/litestream.yml
 COPY scripts/replication.sh /scripts/replication.sh
 
 CMD [ "/scripts/replication.sh" ]
