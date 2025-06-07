@@ -6,4 +6,3 @@ dbs:
         path: chat.db
         endpoint: https://fly.storage.tigris.dev
         force-path-style: true
-
