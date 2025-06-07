@@ -8,7 +8,7 @@ COPY go.mod go.sum ./
 RUN go mod download && go mod verify
 
 COPY . .
-RUN go build -ldflags '-s -w -extldflags "-static"' -tags osusergo,netgo,sqlite_omit_load_extension -o /usr/local/bin/chat-app .
+RUN go build -o /usr/local/bin/chat-app .
 
 # Download the static build of Litestream directly into the path & make it executable.
 # This is done in the builder and copied as the chmod doubles the size.
@@ -22,7 +22,7 @@ COPY --from=builder /usr/local/bin/chat-app /usr/local/bin/chat-app
 COPY --from=builder /usr/local/bin/litestream /usr/local/bin/litestream
 
 # Install required libs
-RUN apt-get update -y && apt-get install -y bash ca-certificates sqlite3
+RUN apt-get update -y && apt-get install -y ca-certificates sqlite3
 
 # Create data directory (although this will likely be mounted too)
 RUN mkdir -p /database
@@ -31,7 +31,7 @@ RUN mkdir -p /database
 EXPOSE 8080
 
 # Copy Litestream configuration file & startup script.
-COPY /litestream.yml /etc/litestream.yml
+COPY litestream.yml /etc/litestream.yml
 COPY scripts/replication.sh /scripts/replication.sh
 
 CMD [ "/scripts/replication.sh" ]
