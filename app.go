@@ -10,8 +10,8 @@ func main() {
 
 	r := setupRouter()
 
-	log.Println("Server started at http://localhost:8081")
-	err := http.ListenAndServe(":8081", r)
+	log.Println("Server started at http://localhost:8080")
+	err := http.ListenAndServe(":8080", r)
 	if err != nil {
 		log.Fatal("ListenAndServe error:", err)
 	}
