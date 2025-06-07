@@ -2,7 +2,7 @@ dbs:
   - path: /database/chat.db
     replicas:
       - type: s3
-        bucket: lingering-paper-1189
+        bucket: divine-pine-6451
         path: chat.db
         endpoint: https://fly.storage.tigris.dev
         force-path-style: true
