@@ -9,12 +9,13 @@ import (
 
 var db *sql.DB
 
-func initDB() {
-	var err error
-	db, err = sql.Open("sqlite", "database/chat.db")
+func initDB(dns *string) {
+	db, err := sql.Open("sqlite", *dns)
 	if err != nil {
 		log.Fatal(err)
 	}
+
+	defer db.Close()
 
 	_, err = db.Exec(`
 	CREATE TABLE IF NOT EXISTS messages (

@@ -1,12 +1,21 @@
 package main
 
 import (
+	"flag"
 	"log"
 	"net/http"
 )
 
 func main() {
-	initDB()
+	// Parse command line flags.
+	dsn := flag.String("dsn", "", "datasource name")
+	flag.Parse()
+	if *dsn == "" {
+		flag.Usage()
+		log.Fatal("required: -dsn")
+	}
+
+	initDB(dsn)
 
 	r := setupRouter()
 
