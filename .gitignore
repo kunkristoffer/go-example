@@ -1,1 +1,3 @@
 go-example.exe
+.env*
+*.ps1
