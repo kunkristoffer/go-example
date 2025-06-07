@@ -5,8 +5,8 @@ set -e
 if [ -f /database/chat.db ]; then
 	echo "Database already exists, skipping restore"
 else
-	echo "No database found, restoring from replica (s3://${BUCKET_NAME}/chat.db) if exists"
-	litestream restore -if-replica-exists -o database/chat.db "s3://${BUCKET_NAME}/chat.db"
+	echo "No database found, restoring from replica (${REPLICA_URL}) if exists"
+	litestream restore -if-replica-exists -o database/chat.db
 fi
 
 # Run litestream with your app as the subprocess.
