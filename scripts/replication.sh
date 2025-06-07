@@ -10,4 +10,4 @@ else
 fi
 
 # Run litestream with your app as the subprocess.
-exec litestream replicate -exec "/usr/local/bin/myapp -dsn /database/chat.db"
+exec litestream replicate -exec "/usr/local/bin/chat-app -dsn /database/chat.db"
