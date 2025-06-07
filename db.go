@@ -8,14 +8,13 @@ import (
 )
 
 var db *sql.DB
+var err error
 
 func initDB(dns *string) {
-	db, err := sql.Open("sqlite", *dns)
+	db, err = sql.Open("sqlite", *dns)
 	if err != nil {
 		log.Fatal(err)
 	}
-
-	defer db.Close()
 
 	_, err = db.Exec(`
 	CREATE TABLE IF NOT EXISTS messages (
