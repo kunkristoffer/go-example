@@ -1,3 +1,4 @@
 # flyctl launch added from .gitignore
 **/go-example.exe
 fly.toml
+database/
