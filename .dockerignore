@@ -7,6 +7,3 @@ fly.toml
 
 # Scripts & misc
 *.ps1
-
-# Secrets
-.env*
