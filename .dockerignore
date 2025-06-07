@@ -1,4 +1,12 @@
-# flyctl launch added from .gitignore
-**/go-example.exe
+# Fly.io config
 fly.toml
+
+# Binaries & DB
+**/go-example.exe
+*.db
+
+# Scripts & misc
 *.ps1
+
+# Secrets
+.env*
