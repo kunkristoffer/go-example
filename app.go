@@ -1,17 +1,26 @@
 package main
 
 import (
+	"flag"
 	"log"
 	"net/http"
 )
 
 func main() {
-	initDB()
+	// Parse command line flags.
+	dsn := flag.String("dsn", "", "datasource name")
+	flag.Parse()
+	if *dsn == "" {
+		flag.Usage()
+		log.Fatal("required: -dsn")
+	}
+
+	initDB(dsn)
 
 	r := setupRouter()
 
-	log.Println("Server started at http://localhost:8081")
-	err := http.ListenAndServe(":8081", r)
+	log.Println("Server started at http://localhost:8080")
+	err := http.ListenAndServe(":8080", r)
 	if err != nil {
 		log.Fatal("ListenAndServe error:", err)
 	}

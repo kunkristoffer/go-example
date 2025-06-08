@@ -8,9 +8,9 @@ primary_region = 'arn'
 
 [build]
 
-[[mounts]]
-  source = 'litefs'
-  destination = '/var/lib/litefs'
+[mounts]
+  source = "litestream"
+  destination = "/database"
 
 [http_service]
   internal_port = 8080
