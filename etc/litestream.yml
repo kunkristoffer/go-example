@@ -3,6 +3,6 @@ dbs:
     replicas:
       - type: s3
         bucket: divine-pine-6451
-        path: chat.db
+        path: chat
         endpoint: https://fly.storage.tigris.dev
         force-path-style: true
