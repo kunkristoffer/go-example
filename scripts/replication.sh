@@ -3,7 +3,7 @@ set -e
 
 # Validate config file
 if [ -f /etc/litestream.yml ]; then
-	echo "Configuration file found "
+	echo "Configuration file found"
 else
 	echo "No configuration found, using cli arguments"
 fi
