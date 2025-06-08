@@ -33,6 +33,7 @@ EXPOSE 8080
 # Copy Litestream configuration file & startup script.
 COPY etc/litestream.yml /etc/litestream.yml
 COPY scripts/replication.sh /scripts/replication.sh
+RUN chmod +x /scripts/replication.sh
 
 #CMD [ "tail", "-f", "/dev/null" ]
 CMD [ "/scripts/replication.sh" ]
